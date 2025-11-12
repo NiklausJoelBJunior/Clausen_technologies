@@ -1,6 +1,6 @@
 {
   "name": "clausen-desktop",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Clausen School Management System - Desktop Application",
   "main": "main.js",
   "scripts": {
