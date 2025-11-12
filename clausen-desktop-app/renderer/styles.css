@@ -121,7 +121,16 @@ body {
 }
 
 .nav-item .icon {
-    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+}
+
+.nav-item .icon svg {
+    width: 20px;
+    height: 20px;
 }
 
 .nav-item .label {
@@ -455,6 +464,14 @@ body {
     padding: 4px 8px;
     font-size: 16px;
     transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-icon svg {
+    width: 16px;
+    height: 16px;
 }
 
 .btn-icon:hover {
