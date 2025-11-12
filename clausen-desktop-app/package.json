@@ -1,0 +1,70 @@
+{
+  "name": "clausen-desktop",
+  "version": "1.0.0",
+  "description": "Clausen School Management System - Desktop Application",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "build:win": "electron-builder --win",
+    "build:mac": "electron-builder --mac",
+    "build:linux": "electron-builder --linux"
+  },
+  "keywords": [
+    "clausen",
+    "school",
+    "management",
+    "education",
+    "electron"
+  ],
+  "author": "Clausen Technologies",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^27.0.0",
+    "electron-builder": "^24.6.4"
+  },
+  "dependencies": {
+    "electron-updater": "^6.6.2"
+  },
+  "build": {
+    "appId": "com.clausen.desktop",
+    "productName": "Clausen",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*",
+      "assets/**/*"
+    ],
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "NiklausJoelBJunior",
+        "repo": "Clausen_technologies"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "assets/LOGO WITH NO BACKGROUND.png"
+    },
+    "mac": {
+      "target": [
+        "dmg"
+      ],
+      "icon": "assets/LOGO WITH NO BACKGROUND.png",
+      "category": "public.app-category.education"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "icon": "assets/LOGO WITH NO BACKGROUND.png",
+      "category": "Education"
+    }
+  }
+}

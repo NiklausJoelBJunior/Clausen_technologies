@@ -22,5 +22,6 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
-# Electron app (not needed for landing page)
-clausen-desktop-app/
+# Desktop app build output
+clausen-desktop-app/dist/
+clausen-desktop-app/node_modules/

@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loading - Clausen</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .loading-container {
+            text-align: center;
+            background: rgba(24, 24, 27, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 60px;
+            border-radius: 20px;
+            border: 1px solid rgba(37, 254, 173, 0.1);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        .logo-container {
+            margin-bottom: 30px;
+        }
+
+        .logo {
+            max-width: 200px;
+            height: auto;
+            animation: fadeInScale 1s ease-out;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 700;
+            color: #25fead;
+            margin-bottom: 15px;
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .subtitle {
+            font-size: 16px;
+            color: #a1a1aa;
+            margin-bottom: 10px;
+            line-height: 1.6;
+            animation: fadeInUp 1s ease-out 0.5s both;
+        }
+
+        .description {
+            font-size: 14px;
+            color: #71717a;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease-out 0.7s both;
+        }
+
+        .features {
+            text-align: left;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px 0;
+            color: #a1a1aa;
+            font-size: 14px;
+        }
+
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, #25fead 0%, #1de89a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+
+        .loading-bar-container {
+            width: 100%;
+            height: 4px;
+            background-color: #27272a;
+            border-radius: 2px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-out 1.1s both;
+        }
+
+        .loading-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #25fead 0%, #1de89a 100%);
+            width: 0%;
+            animation: loadingProgress 12s ease-out forwards;
+            box-shadow: 0 0 10px rgba(37, 254, 173, 0.5);
+        }
+
+        .loading-text {
+            font-size: 13px;
+            color: #71717a;
+            animation: fadeInUp 1s ease-out 1.3s both;
+        }
+
+        .company-footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            animation: fadeInUp 1s ease-out 1.5s both;
+        }
+
+        .company-logo {
+            max-width: 150px;
+            height: auto;
+            opacity: 0.6;
+        }
+
+        .company-text {
+            font-size: 11px;
+            color: #52525b;
+            margin-top: 10px;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes loadingProgress {
+            0% {
+                width: 0%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        .pulse {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-container">
+        <div class="logo-container">
+            <img src="../assets/clausen_logo_with_word.png" alt="Clausen Logo" class="logo">
+        </div>
+
+        <h1 class="title">School Management System</h1>
+        
+        <p class="subtitle">Comprehensive solution for modern education management</p>
+        
+        <p class="description">
+            Streamline your school operations with our all-in-one platform designed to enhance productivity and improve communication.
+        </p>
+
+        <div class="features">
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>Student & Teacher Management</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>Attendance Tracking & Reporting</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>Grade Management & Analytics</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>Financial Management & Billing</span>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">✓</div>
+                <span>Health Records & Medical Tracking</span>
+            </div>
+        </div>
+
+        <div class="loading-bar-container">
+            <div class="loading-bar"></div>
+        </div>
+
+        <p class="loading-text pulse">Initializing system...</p>
+
+        <div class="company-footer">
+            <img src="../assets/technologies_logo_with_word.png" alt="Clausen Technologies" class="company-logo">
+            <p class="company-text">Powered by Clausen Technologies</p>
+        </div>
+    </div>
+</body>
+</html>

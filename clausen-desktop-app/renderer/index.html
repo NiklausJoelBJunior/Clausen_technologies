@@ -1,0 +1,178 @@
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clausen - School Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Custom Title Bar -->
+    <div class="title-bar">
+        <div class="title-bar-title">Clausen - School Management System</div>
+        <div class="title-bar-controls">
+            <button class="title-bar-button minimize" id="minimize-btn">−</button>
+            <button class="title-bar-button maximize" id="maximize-btn">□</button>
+            <button class="title-bar-button close" id="close-btn">×</button>
+        </div>
+    </div>
+
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <div class="logo-container">
+                <img src="../assets/clausen_logo_with_word.png" alt="Clausen Logo" class="app-logo">
+            </div>
+            
+            <nav class="nav-menu">
+                <a href="#" class="nav-item active" data-view="dashboard">
+                    <span class="icon">📊</span>
+                    <span class="label">Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-view="students">
+                    <span class="icon">👥</span>
+                    <span class="label">Students</span>
+                </a>
+                <a href="#" class="nav-item" data-view="teachers">
+                    <span class="icon">👨‍🏫</span>
+                    <span class="label">Teachers</span>
+                </a>
+                <a href="#" class="nav-item" data-view="classes">
+                    <span class="icon">📚</span>
+                    <span class="label">Classes</span>
+                </a>
+                <a href="#" class="nav-item" data-view="attendance">
+                    <span class="icon">✅</span>
+                    <span class="label">Attendance</span>
+                </a>
+                <a href="#" class="nav-item" data-view="grades">
+                    <span class="icon">📝</span>
+                    <span class="label">Grades</span>
+                </a>
+                <a href="#" class="nav-item" data-view="reports">
+                    <span class="icon">📈</span>
+                    <span class="label">Reports</span>
+                </a>
+                <a href="#" class="nav-item" data-view="settings">
+                    <span class="icon">⚙️</span>
+                    <span class="label">Settings</span>
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-bar">
+                <h1 class="page-title">Dashboard</h1>
+                <div class="user-info">
+                    <span class="user-role" id="user-role">Administrator</span>
+                    <span class="user-name" id="user-name">Admin User</span>
+                    <div class="user-avatar" id="user-avatar">A</div>
+                </div>
+            </header>
+
+            <div class="content-area" id="content">
+                <!-- Dashboard View -->
+                <div class="view active" id="dashboard-view">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h3>Total Students</h3>
+                            <p class="stat-number">1,234</p>
+                            <span class="stat-change positive">+12% from last month</span>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Total Teachers</h3>
+                            <p class="stat-number">87</p>
+                            <span class="stat-change positive">+3 new</span>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Active Classes</h3>
+                            <p class="stat-number">42</p>
+                            <span class="stat-change">Ongoing</span>
+                        </div>
+                        <div class="stat-card">
+                            <h3>Attendance Rate</h3>
+                            <p class="stat-number">94.5%</p>
+                            <span class="stat-change positive">+2.3%</span>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-charts">
+                        <div class="chart-container">
+                            <h3>Recent Activity</h3>
+                            <ul class="activity-list">
+                                <li>New student enrollment: John Doe (Grade 10)</li>
+                                <li>Attendance marked for Class 10A</li>
+                                <li>Grade report published for Mathematics</li>
+                                <li>Parent meeting scheduled for tomorrow</li>
+                                <li>New teacher joined: Sarah Johnson (Science)</li>
+                            </ul>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Upcoming Events</h3>
+                            <ul class="activity-list">
+                                <li>Parent-Teacher Conference - Nov 15, 2025</li>
+                                <li>Mid-term Examinations - Nov 20-25, 2025</li>
+                                <li>Sports Day - Dec 1, 2025</li>
+                                <li>Winter Break - Dec 20 - Jan 5</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Other views would go here -->
+                <div class="view" id="students-view">
+                    <h2>Students Management</h2>
+                    <p>Student management interface coming soon...</p>
+                </div>
+
+                <div class="view" id="teachers-view">
+                    <h2>Teachers Management</h2>
+                    <p>Teacher management interface coming soon...</p>
+                </div>
+
+                <div class="view" id="classes-view">
+                    <h2>Classes Management</h2>
+                    <p>Classes management interface coming soon...</p>
+                </div>
+
+                <div class="view" id="attendance-view">
+                    <h2>Attendance Tracking</h2>
+                    <p>Attendance tracking interface coming soon...</p>
+                </div>
+
+                <div class="view" id="grades-view">
+                    <h2>Grades Management</h2>
+                    <p>Grades management interface coming soon...</p>
+                </div>
+
+                <div class="view" id="reports-view">
+                    <h2>Reports & Analytics</h2>
+                    <p>Reports and analytics interface coming soon...</p>
+                </div>
+
+                <div class="view" id="settings-view">
+                    <h2>Settings</h2>
+                    
+                    <div class="settings-section">
+                        <h3>Application Information</h3>
+                        <div class="setting-item">
+                            <label>Version:</label>
+                            <span id="app-version">Loading...</span>
+                        </div>
+                    </div>
+
+                    <div class="settings-section">
+                        <h3>Updates</h3>
+                        <p class="setting-description">Keep your application up to date with the latest features and security improvements.</p>
+                        <button class="update-button" id="check-updates-btn">Check for Updates</button>
+                        <div id="update-status" class="update-status"></div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
