@@ -17,6 +17,14 @@ export default defineConfig({
       {
         // Main-Process entry file of the Electron App.
         entry: 'electron/main.js',
+        vite: {
+          build: {
+            rollupOptions: {
+              // Don't bundle these - they'll be external modules
+              external: []
+            }
+          }
+        },
         onstart(options) {
           // Create package.json in dist-electron to mark as CommonJS
           writeFileSync(
@@ -24,7 +32,7 @@ export default defineConfig({
             JSON.stringify({ type: 'commonjs' })
           )
           
-          // Copy database.js to dist-electron
+          // Copy database.js and fingerprint.js to dist-electron
           try {
             mkdirSync(resolve(__dirname, 'dist-electron'), { recursive: true })
             copyFileSync(
@@ -52,6 +60,26 @@ export default defineConfig({
       },
     ]),
     renderer(),
+    {
+      // Custom plugin to copy database.js and fingerprint.js during build
+      name: 'copy-electron-modules',
+      closeBundle() {
+        try {
+          mkdirSync(resolve(__dirname, 'dist-electron'), { recursive: true })
+          copyFileSync(
+            resolve(__dirname, 'electron/database.js'),
+            resolve(__dirname, 'dist-electron/database.js')
+          )
+          copyFileSync(
+            resolve(__dirname, 'electron/fingerprint.js'),
+            resolve(__dirname, 'dist-electron/fingerprint.js')
+          )
+          console.log('✓ Copied database.js and fingerprint.js to dist-electron')
+        } catch (error) {
+          console.error('Error copying electron modules:', error)
+        }
+      }
+    }
   ],
   resolve: {
     alias: {
