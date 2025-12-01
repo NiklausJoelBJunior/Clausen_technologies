@@ -6,21 +6,21 @@ on:
       - 'v*'
   workflow_dispatch:
 
+permissions:
+  contents: write
+  packages: write
+
 jobs:
   release:
     runs-on: ${{ matrix.os }}
     
     strategy:
       matrix:
-        os: [macos-latest, ubuntu-latest, windows-latest]
+        os: [macos-latest, windows-latest]
     
     steps:
       - name: Check out Git repository
         uses: actions/checkout@v3
-      
-      - name: Install system dependencies (Linux)
-        if: matrix.os == 'ubuntu-latest'
-        run: sudo apt-get update && sudo apt-get install -y libusb-1.0-0-dev libudev-dev
       
       - name: Install system dependencies (macOS)
         if: matrix.os == 'macos-latest'
@@ -53,13 +53,6 @@ jobs:
       - name: Release for Windows
         if: matrix.os == 'windows-latest'
         run: npm run build:win
-        working-directory: ./clausen-desktop-app
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-      - name: Release for Linux
-        if: matrix.os == 'ubuntu-latest'
-        run: npm run build:linux
         working-directory: ./clausen-desktop-app
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
