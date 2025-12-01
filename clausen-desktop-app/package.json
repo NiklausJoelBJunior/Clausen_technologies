@@ -1,7 +1,6 @@
 {
   "name": "clausen-desktop",
-  "version": "2.0.0",
-  "type": "module",
+  "version": "2.0.1",
   "description": "Clausen School Management System - Desktop Application with Fingerprint Support",
   "main": "dist-electron/main.js",
   "homepage": "https://niklausjoelbjunior.github.io/Clausen_technologies/",
