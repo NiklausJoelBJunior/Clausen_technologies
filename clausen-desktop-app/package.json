@@ -1,15 +1,17 @@
 {
   "name": "clausen-desktop",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "type": "module",
-  "description": "Clausen School Management System - Desktop Application",
-  "main": "dist-vite/electron/main.js",
+  "description": "Clausen School Management System - Desktop Application with Fingerprint Support",
+  "main": "dist-electron/main.js",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:win": "npm run build && electron-builder --win",
-    "build:mac": "npm run build && electron-builder --mac",
-    "build:linux": "npm run build && electron-builder --linux",
+    "build:win": "npm run build && electron-builder --win --publish always",
+    "build:mac": "npm run build && electron-builder --mac --publish always",
+    "build:linux": "npm run build && electron-builder --linux --publish always",
+    "build:all": "npm run build && electron-builder --win --mac --linux --publish always",
+    "release": "npm run build && electron-builder --publish always",
     "preview": "vite preview"
   },
   "keywords": [
@@ -27,48 +29,76 @@
     "electron": "^27.0.0",
     "electron-builder": "^24.6.4",
     "postcss": "^8.5.6",
-    "tailwindcss": "^4.1.17",
+    "tailwindcss": "^3.4.18",
     "vite": "^7.2.2",
     "vite-plugin-electron": "^0.29.0",
     "vite-plugin-electron-renderer": "^0.14.6"
   },
   "dependencies": {
+    "@digitalpersona/core": "^0.2.6",
+    "@digitalpersona/devices": "^0.2.6",
     "electron-updater": "^6.6.2",
+    "mysql2": "^3.15.3",
+    "node-hid": "^3.2.0",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "react-router-dom": "^7.9.5"
+    "react-router-dom": "^7.9.5",
+    "serialport": "^13.0.0"
   },
   "build": {
     "appId": "com.clausen.desktop",
     "productName": "Clausen",
     "directories": {
-      "output": "dist"
+      "output": "dist",
+      "buildResources": "assets"
     },
     "files": [
-      "main.js",
-      "preload.js",
-      "renderer/**/*",
-      "assets/**/*"
+      "dist-vite/**/*",
+      "dist-electron/**/*",
+      "assets/**/*",
+      "!**/*.map",
+      "!**/node_modules/*/{CHANGELOG.md,README.md,README,readme.md,readme}",
+      "!**/node_modules/.bin"
     ],
     "publish": [
       {
         "provider": "github",
         "owner": "NiklausJoelBJunior",
-        "repo": "Clausen_technologies"
+        "repo": "Clausen_technologies",
+        "releaseType": "release"
       }
     ],
     "win": {
       "target": [
-        "nsis"
+        {
+          "target": "nsis",
+          "arch": ["x64"]
+        }
       ],
       "icon": "assets/LOGO WITH NO BACKGROUND.png"
     },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Clausen School"
+    },
     "mac": {
       "target": [
-        "dmg"
+        {
+          "target": "dmg",
+          "arch": ["x64", "arm64"]
+        }
       ],
       "icon": "assets/LOGO WITH NO BACKGROUND.png",
-      "category": "public.app-category.education"
+      "category": "public.app-category.education",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false
+    },
+    "dmg": {
+      "title": "Clausen School Management",
+      "icon": "assets/LOGO WITH NO BACKGROUND.png"
     },
     "linux": {
       "target": [
