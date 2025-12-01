@@ -4,6 +4,15 @@
   "type": "module",
   "description": "Clausen School Management System - Desktop Application with Fingerprint Support",
   "main": "dist-electron/main.js",
+  "homepage": "https://niklausjoelbjunior.github.io/Clausen_technologies/",
+  "author": {
+    "name": "Clausen Technologies",
+    "email": "info@clausentechnologies.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/NiklausJoelBJunior/Clausen_technologies"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -21,7 +30,6 @@
     "education",
     "electron"
   ],
-  "author": "Clausen Technologies",
   "license": "ISC",
   "devDependencies": {
     "@vitejs/plugin-react": "^5.1.1",
@@ -106,7 +114,8 @@
         "deb"
       ],
       "icon": "assets/LOGO WITH NO BACKGROUND.png",
-      "category": "Education"
+      "category": "Education",
+      "maintainer": "Clausen Technologies <info@clausentechnologies.com>"
     }
   }
 }
